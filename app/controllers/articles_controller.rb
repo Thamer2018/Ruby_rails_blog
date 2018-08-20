@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-   
+    http_basic_authenticate_with name: "thame", password: "secret", except: [:index, :show]
    
    def index
     @articles = Article.all
@@ -28,6 +28,8 @@ class ArticlesController < ApplicationController
     
     end
     end
+    
+   
     
   def update
   @article = Article.find(params[:id])
